@@ -2,6 +2,7 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 import logo from "./logo.svg";
 import "./App.css";
+import profilePic from "./profile_pic.jpeg";
 
 const App = () => {
   console.log({
@@ -20,8 +21,14 @@ const App = () => {
   }
   return (
     <div>
-      <div alt="" className="vanta-bg" id="vanta-bg" />
-      <div className="Typewriter-container">
+      <div className="vanta-bg" id="vanta-bg" />
+      <div className="Content-container">
+        <img
+          alt="Queen"
+          id="profile-pic"
+          src={profilePic}
+          className="Profile-pic"
+        />
         <Typewriter
           options={{
             wrapperClassName: "Typewriter",
