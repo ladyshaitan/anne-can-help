@@ -4,11 +4,11 @@ import logo from "./logo.svg";
 import "./App.css";
 
 const App = () => {
+  console.log({
+    REACT_APP_UNDER_CONSTRUCTION: process.env.REACT_APP_UNDER_CONSTRUCTION,
+    result: !process.env.REACT_APP_UNDER_CONSTRUCTION,
+  });
   if (process.env.REACT_APP_UNDER_CONSTRUCTION === "true") {
-    console.log({
-      REACT_APP_UNDER_CONSTRUCTION: process.env.REACT_APP_UNDER_CONSTRUCTION,
-      result: !process.env.REACT_APP_UNDER_CONSTRUCTION,
-    });
     return (
       <div className="App">
         <header className="App-header">
