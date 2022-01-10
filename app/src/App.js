@@ -25,9 +25,37 @@ const App = () => {
         <Typewriter
           options={{
             wrapperClassName: "Typewriter",
-            strings: ["Hello world...", "This is Anne", "Is anyone there...?"],
             autoStart: true,
-            loop: true,
+          }}
+          onInit={(typewriter) => {
+            typewriter
+              .changeDelay(70)
+              .typeString("Hello, I'm a software engineer")
+              .pauseFor(2000)
+              .changeDeleteSpeed(1)
+              .deleteChars(17)
+              .pauseFor(1500)
+              .changeDelay(60)
+              .typeString("crypto enthusiast")
+              .pauseFor(1500)
+              .changeDeleteSpeed(100)
+              .deleteChars(10)
+              .pauseFor(750)
+              .changeDeleteSpeed(50)
+              .deleteChars(9)
+              .pauseFor(2500)
+              .changeDelay(100)
+              .typeString("an idea brewer")
+              .pauseFor(2500)
+              .changeDeleteSpeed(1)
+              .deleteChars(7)
+              .pauseFor(700)
+              .changeDeleteSpeed(100)
+              .deleteChars(7)
+              .pauseFor(1900)
+              .changeDelay(500)
+              .typeString("Anne")
+              .start();
           }}
         />
       </div>
