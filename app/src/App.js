@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Typewriter from "typewriter-effect";
 import logo from "./logo.svg";
 import "./App.css";
 import profilePic from "./profile_pic.jpeg";
+import reactLogo from "./logo.svg";
+import expressJSLogo from "./express-js-logo.svg";
+import mongoDBLogo from "./mongodb-logo.svg";
+import nodesJSLogo from "./nodejs-logo.svg";
+import awsLogo from "./aws-logo.svg";
 
 const App = () => {
+  const [isShown, showLinks] = useState(false);
+
   if (process.env.REACT_APP_UNDER_CONSTRUCTION === "true") {
     return (
       <div className="App">
@@ -15,6 +22,10 @@ const App = () => {
       </div>
     );
   }
+
+  const LINK_SIZE = "100px";
+  const LINK_SIZE_SMALL = "80px";
+  const LINK_SIZE_XSMALL = "60px";
 
   return (
     <div>
@@ -52,9 +63,47 @@ const App = () => {
               .typeString("Anne")
               .pauseFor(2000)
               .typeString(" 🚀")
+              .pauseFor(500)
+              .callFunction(() => showLinks(true))
               .start();
           }}
         />
+        {isShown && (
+          <div className="Link-carousel">
+            <img
+              alt="mongoDB"
+              src={mongoDBLogo}
+              className="Logo-icon"
+              height={LINK_SIZE}
+            />
+            <img
+              alt="expressJS logo"
+              src={expressJSLogo}
+              className="Logo-icon"
+              height={LINK_SIZE}
+            />
+            <img
+              alt="reactJS"
+              src={reactLogo}
+              className="Logo-icon"
+              height={LINK_SIZE}
+              width={LINK_SIZE}
+            />
+            <img
+              alt="nodeJS"
+              src={nodesJSLogo}
+              className="Logo-icon Logo-padding"
+              height={LINK_SIZE_SMALL}
+            />
+            <img
+              alt="Amazon Web Services"
+              src={awsLogo}
+              class=""
+              className="Logo-icon Logo-padding"
+              height={LINK_SIZE_XSMALL}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
