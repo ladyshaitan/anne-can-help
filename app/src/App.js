@@ -5,10 +5,6 @@ import "./App.css";
 import profilePic from "./profile_pic.jpeg";
 
 const App = () => {
-  console.log({
-    REACT_APP_UNDER_CONSTRUCTION: process.env.REACT_APP_UNDER_CONSTRUCTION,
-    result: !process.env.REACT_APP_UNDER_CONSTRUCTION,
-  });
   if (process.env.REACT_APP_UNDER_CONSTRUCTION === "true") {
     return (
       <div className="App">
@@ -19,11 +15,13 @@ const App = () => {
       </div>
     );
   }
+
   return (
     <div>
       <div className="vanta-bg" id="vanta-bg" />
       <div className="Content-container">
         <img
+          loading="lazy"
           alt="Queen"
           id="profile-pic"
           src={profilePic}
@@ -44,24 +42,16 @@ const App = () => {
               .pauseFor(1500)
               .changeDelay(60)
               .typeString("crypto enthusiast")
-              .pauseFor(1500)
-              .changeDeleteSpeed(100)
+              .pauseFor(1200)
               .deleteChars(10)
-              .pauseFor(750)
+              .pauseFor(240)
               .changeDeleteSpeed(50)
               .deleteChars(9)
-              .pauseFor(2500)
-              .changeDelay(100)
-              .typeString("an idea brewer")
-              .pauseFor(2500)
-              .changeDeleteSpeed(1)
-              .deleteChars(7)
-              .pauseFor(700)
-              .changeDeleteSpeed(100)
-              .deleteChars(7)
-              .pauseFor(1900)
-              .changeDelay(500)
+              .pauseFor(1300)
+              .changeDelay(200)
               .typeString("Anne")
+              .pauseFor(2000)
+              .typeString(" 🚀")
               .start();
           }}
         />
