@@ -45,7 +45,7 @@ const App = () => {
           }}
           onInit={(typewriter) => {
             typewriter
-              .changeDelay(70)
+              .changeDelay(60)
               .typeString("Hello, I'm a software engineer")
               .pauseFor(500)
               .changeDeleteSpeed(1)
@@ -56,7 +56,7 @@ const App = () => {
               .pauseFor(700)
               .deleteChars(19)
               .pauseFor(1000)
-              .changeDelay(120)
+              .changeDelay(110)
               .typeString("Anne")
               .pauseFor(180)
               .typeString(" 🚀")
