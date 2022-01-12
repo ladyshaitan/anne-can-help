@@ -10,9 +10,11 @@ import nodesJSLogo from "./nodejs-logo.svg";
 import awsLogo from "./aws-logo.svg";
 
 const App = () => {
+  const isSmallViewport = window.innerWidth < 400;
   const [isShown, showLinks] = useState(false);
 
-  const handleKeyPress = (e) => console.log(e) || showLinks(true);
+  const handleKeyPress = () => showLinks(true);
+  const handleClick = () => isSmallViewport && showLinks(true);
 
   if (process.env.REACT_APP_UNDER_CONSTRUCTION === "true") {
     return (
@@ -26,11 +28,10 @@ const App = () => {
   }
 
   const LINK_SIZE = "100px";
-  const LINK_SIZE_SMALL = "80px";
   const LINK_SIZE_XSMALL = "60px";
 
   return (
-    <div>
+    <div className="Page" onClick={handleClick}>
       <div className="Vanta-bg" id="vanta-bg" />
       <div
         className="Content-container"
@@ -85,11 +86,21 @@ const App = () => {
           <div className="Bounce">
             <>
               <span className="Titles">
-                <h2>
-                  Anne Pruett
-                  <br /> Software Engineer | Crypto Enthusiast | Problem Killer
-                  ⚒️
-                </h2>
+                {isSmallViewport ? (
+                  <>
+                    <h2>Anne Pruett</h2>
+                    <p>
+                      🔧 Software Engineer <br /> 🔒 Crypto Enthusiast <br />
+                      🗡 Problem Killer
+                    </p>
+                  </>
+                ) : (
+                  <h2>
+                    Anne Pruett
+                    <br /> Software Engineer | Crypto Enthusiast | Problem
+                    Killer ⚒️
+                  </h2>
+                )}
               </span>
               <div className="Intro">
                 <p>
@@ -105,26 +116,26 @@ const App = () => {
                 alt="mongoDB"
                 src={mongoDBLogo}
                 className="Wiggle"
-                height={LINK_SIZE}
+                height={isSmallViewport ? LINK_SIZE_XSMALL : LINK_SIZE}
               />
               <img
                 alt="expressJS logo"
                 src={expressJSLogo}
                 className="Wiggle"
-                height={LINK_SIZE}
+                height={isSmallViewport ? LINK_SIZE_XSMALL : LINK_SIZE}
               />
               <img
                 alt="reactJS"
                 src={reactLogo}
                 className="Wiggle"
-                height={LINK_SIZE}
-                width={LINK_SIZE}
+                height={isSmallViewport ? LINK_SIZE_XSMALL : LINK_SIZE}
+                width={isSmallViewport ? LINK_SIZE_XSMALL : LINK_SIZE}
               />
               <img
                 alt="nodeJS"
                 src={nodesJSLogo}
                 className="Logo-padding Wiggle"
-                height={LINK_SIZE_SMALL}
+                height={isSmallViewport ? LINK_SIZE_XSMALL : LINK_SIZE}
               />
               <img
                 alt="Amazon Web Services"
