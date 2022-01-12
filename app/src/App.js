@@ -133,6 +133,13 @@ const App = () => {
                 height={LINK_SIZE_XSMALL}
               />
             </div>
+            <div>
+              <p>
+                This site was built using Git, AWS (EC2 instance, Elastic IP
+                address, CodeCommit, CodeDeploy), NGINX, Certbot, Vanta, and
+                ReactJS.
+              </p>
+            </div>
           </div>
         )}
       </div>

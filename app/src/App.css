@@ -76,9 +76,11 @@
   align-items: center;
   padding: 10px 15% 10px;
   outline: none;
+  overflow-y:scroll;
 }
 
 p {
+  text-align: center;
   color: rgb(245, 254, 255);
 }
 
