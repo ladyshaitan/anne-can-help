@@ -13,7 +13,7 @@ const App = () => {
   const isSmallViewport = window.innerWidth < 400;
   const [isShown, showLinks] = useState(false);
 
-  const handleKeyPress = () => showLinks(true);
+  const handleKeyPress = () => !isShown && showLinks(true);
   const handleClick = () => isSmallViewport && showLinks(true);
 
   if (process.env.REACT_APP_UNDER_CONSTRUCTION === "true") {
@@ -90,15 +90,16 @@ const App = () => {
                   <>
                     <h2>Anne Pruett</h2>
                     <p>
-                      🔧 Software Engineer <br /> 🔒 Crypto Enthusiast <br />
-                      🗡 Problem Killer
+                      🔧&nbsp;Software Engineer <br /> 🔒&nbsp;Crypto Enthusiast
+                      <br />
+                      🗡&nbsp;Problem Killer
                     </p>
                   </>
                 ) : (
                   <h2>
                     Anne Pruett
-                    <br /> Software Engineer | Crypto Enthusiast | Problem
-                    Killer ⚒️
+                    <br /> 🔧&nbsp;Software Engineer 🔒&nbsp;Crypto Enthusiast
+                    🗡&nbsp;Problem Killer
                   </h2>
                 )}
               </span>
