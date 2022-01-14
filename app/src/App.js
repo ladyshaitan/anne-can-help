@@ -10,7 +10,8 @@ import nodesJSLogo from "./nodejs-logo.svg";
 import awsLogo from "./aws-logo.svg";
 
 const App = () => {
-  const isSmallViewport = window.innerWidth < 400;
+  const isSmallViewport = window.innerWidth < 420;
+  const viewportHeight = window.innerHeight;
   const [isShown, showLinks] = useState(false);
 
   const handleKeyPress = () => !isShown && showLinks(true);
@@ -30,8 +31,13 @@ const App = () => {
   const LINK_SIZE = "100px";
   const LINK_SIZE_XSMALL = "60px";
 
+  const HEIGHT_CUTOFF = 750;
+
+  const maybeAddHeight =
+    viewportHeight <= HEIGHT_CUTOFF ? { height: `${viewportHeight}px` } : {};
+
   return (
-    <div className="Page" onClick={handleClick}>
+    <div className="Page" onClick={handleClick} style={{ ...maybeAddHeight }}>
       <div className="Vanta-bg" id="vanta-bg" />
       <div
         className="Content-container"
@@ -145,15 +151,13 @@ const App = () => {
                 height={LINK_SIZE_XSMALL}
               />
             </div>
-            {!isSmallViewport && (
-              <div>
-                <p>
-                  This site was built using Git, AWS (EC2 instance, Elastic IP
-                  address, CodeCommit, CodeDeploy), NGINX, Certbot, Vanta, and
-                  ReactJS.
-                </p>
-              </div>
-            )}
+            <div>
+              <p>
+                This site was built using Git, AWS (EC2 instance, Elastic IP
+                address, CodeCommit, CodeDeploy), NGINX, Certbot, Vanta, and
+                ReactJS.
+              </p>
+            </div>
           </div>
         )}
       </div>

@@ -103,6 +103,7 @@ padding-left: 20px;
 }
 
 .Page {
+  overflow-y: scroll;
   outline: none;
 }
 
