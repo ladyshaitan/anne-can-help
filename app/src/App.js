@@ -83,7 +83,7 @@ const App = () => {
               }}
             />
             <span className="Skip-option Floating">
-              <p>`[Press {isSmallViewport ? "" : "any key"} to skip]`</p>
+              <p>[Press {isSmallViewport ? "" : "any key"} to skip]</p>
             </span>
           </>
         )}
