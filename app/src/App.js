@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Typewriter from "typewriter-effect";
 import logo from "./logo.svg";
 import "./App.css";
+import "./css/social-circles.css";
 import profilePic from "./profile_pic.jpeg";
 import reactLogo from "./logo.svg";
 import expressJSLogo from "./express-js-logo.svg";
@@ -16,6 +17,9 @@ const App = () => {
 
   const handleKeyPress = () => !isShown && showLinks(true);
   const handleClick = () => isSmallViewport && showLinks(true);
+
+  document.addEventListener("keypress", handleKeyPress, { once: true });
+  document.addEventListener("click", handleClick, { once: true });
 
   if (process.env.REACT_APP_UNDER_CONSTRUCTION === "true") {
     return (
@@ -37,22 +41,9 @@ const App = () => {
     viewportHeight <= HEIGHT_CUTOFF ? { height: `${viewportHeight}px` } : {};
 
   return (
-    <div className="Page" onClick={handleClick} style={{ ...maybeAddHeight }}>
+    <div className="Page" style={{ ...maybeAddHeight }}>
       <div className="Vanta-bg" id="vanta-bg" />
-      <div
-        className="Content-container"
-        tabIndex={-1}
-        onKeyPress={handleKeyPress}
-      >
-        {isShown && (
-          <img
-            loading="lazy"
-            alt="Queen"
-            id="profile-pic"
-            src={profilePic}
-            className="Profile-pic Bounce"
-          />
-        )}
+      <div className="Content-container">
         {!isShown && (
           <>
             <Typewriter
@@ -89,12 +80,34 @@ const App = () => {
         )}
 
         {isShown && (
+          <img
+            loading="lazy"
+            alt="Queen"
+            id="profile-pic"
+            src={profilePic}
+            className="Profile-pic Bounce"
+          />
+        )}
+
+        {isShown && (
           <div className="Bounce">
             <>
+              <div className="Social-media-links"></div>
               <span className="Titles">
                 {isSmallViewport ? (
                   <>
-                    <h2>Anne Pruett</h2>
+                    <h2>
+                      <a
+                        class="icon-github color"
+                        href="https://github.com/ladyshaitan"
+                      ></a>
+                      &nbsp; Anne Pruett&nbsp;
+                      <a
+                        class="icon-linkedin color "
+                        href="https://linkedin.com/in/helloannepruett"
+                      ></a>
+                    </h2>
+
                     <p>
                       🔧&nbsp;Software Engineer <br /> 🔒&nbsp;Crypto Enthusiast
                       <br />
@@ -102,11 +115,26 @@ const App = () => {
                     </p>
                   </>
                 ) : (
-                  <h2>
-                    Anne Pruett
-                    <br /> 🔧&nbsp;Software Engineer 🔒&nbsp;Crypto Enthusiast
-                    🗡&nbsp;Problem Killer
-                  </h2>
+                  <>
+                    <h2 style={{ "margin-bottom": 0 }}>
+                      <a
+                        class="icon-github color"
+                        href="https://github.com/ladyshaitan"
+                      ></a>
+                      &nbsp; Anne Pruett &nbsp;
+                      <a
+                        class="icon-linkedin color"
+                        href="https://linkedin.com/in/helloannepruett"
+                      ></a>
+                    </h2>
+
+                    <br />
+                    <h2 style={{ "margin-top": 0 }}>
+                      {" "}
+                      🔧&nbsp;Software Engineer 🔒&nbsp;Crypto Enthusiast
+                      🗡&nbsp;Problem Killer
+                    </h2>
+                  </>
                 )}
               </span>
               <div className="Intro">
@@ -114,7 +142,9 @@ const App = () => {
                   Hi there! My name is Anne and I'm a software engineer based in
                   San Francisco.
                   <br />
-                  Right now I'm doing some consulting and short term contracts.
+                  Need an extra pair of hands for your project? <br />
+                  I'm doing some consulting and contract work right now, reach
+                  out to me on LinkedIn and lets chat!
                 </p>
               </div>
             </>
